@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import { NavBar, Footer } from "@/components/common";
 import Provider from "@/redux/provider";
 import { Setup } from "@/components/utils";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 // const poppins = Poppins({ weight: "500", preload: false });
@@ -21,11 +21,14 @@ export default function RootLayout({ children }) {
         <Provider>
           <Setup />
           <NavBar />
-          <Suspense fallback={<div>Loading...</div>}>
+          {/* <Suspense fallback={<div>Loading...</div>}>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
               {children}
             </div>
-          </Suspense>
+          </Suspense> */}
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
+            {children}
+          </div>
 
           <Footer />
         </Provider>

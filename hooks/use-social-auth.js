@@ -24,7 +24,7 @@ export default function useSocialAuth(authenticate, provider) {
           router.push("/listings");
         })
         .catch(() => {
-          toast.error("Failed to log in");
+          // toast.error("Failed to log in");
           router.push("/auth/login");
         });
     }
