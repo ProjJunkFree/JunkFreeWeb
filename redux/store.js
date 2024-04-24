@@ -9,10 +9,8 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
-  // kani gamiton pag deployment na
-  devTools: process.env.NODE_ENV !== "production",
-  // kani gamiton pag development pa
-  // devTools: true,
+  // devTools: process.env.NODE_ENV !== "production",
+  devTools: true,
 });
 
 // in order to RTK to work need ang middleware

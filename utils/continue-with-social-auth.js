@@ -4,21 +4,13 @@
 import { toast } from "react-toastify";
 export default async function continueWithSocialAuth(provider, redirect) {
   try {
-    // const url = `${
-    //   process.env.NEXT_PUBLIC_HOST
-    // }/api/v1/o/${provider}/?redirect_uri=${
-    //   process.env.NODE_ENV === "production"
-    //     ? process.env.NEXT_PUBLIC_REDIRECT_URL
-    //     : "http://localhost:3000"
-    // }/auth/${redirect}`;
-
-    const redirect_uri =
-      process.env.NODE_ENV === "production"
+    const url = `${
+      process.env.NEXT_PUBLIC_HOST
+    }/api/v1/o/${provider}/?redirect_uri=${
+      process.env.NODE_ENV !== "production"
         ? process.env.NEXT_PUBLIC_REDIRECT_URL
-        : "https://junkfree.netlify.app"; // Fallback for development
-
-    const url = `${process.env.NEXT_PUBLIC_HOST}/api/v1/o/${provider}/?redirect_uri=${redirect_uri}/auth/${redirect}`;
-
+        : "http://localhost:3000"
+    }/auth/${redirect}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
