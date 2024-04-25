@@ -55,16 +55,3 @@ export const apiSlice = createApi({
   baseQuery: baseQueryWithReauth,
   endpoints: (builder) => ({}),
 });
-
-// Add an interceptor to catch 401 errors and dispatch logout action
-apiSlice.middleware.use(async (handler, next) => {
-  try {
-    const result = await handler();
-    return result;
-  } catch (error) {
-    if (error.status === 401) {
-      apiSlice.dispatch(logout());
-    }
-    throw error;
-  }
-});
