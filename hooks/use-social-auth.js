@@ -8,7 +8,6 @@ export default function useSocialAuth(authenticate, provider) {
   const dispatch = useDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const effectRan = useRef(false);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export default function useSocialAuth(authenticate, provider) {
         .unwrap()
         .then(() => {
           dispatch(setAuth());
-          toast.success("Logged in");
+          toast.success("Successfully logged in");
           router.push("/listings");
         })
         .catch(() => {
