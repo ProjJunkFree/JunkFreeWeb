@@ -22,8 +22,9 @@ export default function useSocialAuth(authenticate, provider) {
           toast.success("Successfully logged in");
           router.push("/listings");
         })
-        .catch(() => {
+        .catch((error) => {
           // toast.error("Failed to log in");
+          console.log(error);
           router.push("/auth/login");
         });
     }
@@ -31,5 +32,5 @@ export default function useSocialAuth(authenticate, provider) {
     return () => {
       effectRan.current = true;
     };
-  }, [authenticate, provider, router, searchParams, dispatch]);
+  }, [authenticate, provider]);
 }
