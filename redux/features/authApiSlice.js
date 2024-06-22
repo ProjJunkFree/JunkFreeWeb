@@ -64,6 +64,9 @@ const authApiSlice = apiSlice.injectEndpoints({
         body: { uid, token, new_password, re_new_password },
       }),
     }),
+    fetchItems: builder.query({
+      query: () => "/items/",
+    }),
   }),
 });
 
@@ -79,4 +82,5 @@ export const {
   useResetPasswordMutation,
   useResetPasswordConfirmMutation,
   useRegisterMutation,
+  useFetchItemsQuery,
 } = authApiSlice;

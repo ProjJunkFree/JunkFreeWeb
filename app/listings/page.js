@@ -1,3 +1,10 @@
+import React from "react";
+import dynamic from "next/dynamic";
+
+const ListingsClient = dynamic(() => import("../../hooks/ListingClient"), {
+  ssr: false,
+});
+
 export default function Page() {
   return (
     <>
@@ -9,7 +16,7 @@ export default function Page() {
         </div>
       </header>
       <main className="mx-auto max-w-7xl py-6 my-8 sm:px-6 lg:px-8">
-        Listings diri
+        <ListingsClient />
       </main>
     </>
   );
