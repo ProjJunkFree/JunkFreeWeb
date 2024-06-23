@@ -67,6 +67,26 @@ const authApiSlice = apiSlice.injectEndpoints({
     fetchItems: builder.query({
       query: () => "/items/",
     }),
+    fetchAuthenticatedUser: builder.query({
+      query: () => "/users/me/",
+    }),
+    fetchOwnListings: builder.query({
+      query: () => "/listings/myitems/",
+    }),
+    updateItem: builder.mutation({
+      query: ({ id, name, description, category, condition }) => ({
+        url: `/items/${id}/`,
+        method: "PATCH",
+        body: { name, description, category, condition },
+      }),
+    }),
+    createItem: builder.mutation({
+      query: (newItem) => ({
+        url: "/items/",
+        method: "POST",
+        body: newItem,
+      }),
+    }),
   }),
 });
 
@@ -83,4 +103,8 @@ export const {
   useResetPasswordConfirmMutation,
   useRegisterMutation,
   useFetchItemsQuery,
+  useFetchAuthenticatedUserQuery,
+  useFetchOwnListingsQuery,
+  useUpdateItemMutation,
+  useCreateItemMutation,
 } = authApiSlice;

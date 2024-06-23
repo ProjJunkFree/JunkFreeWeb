@@ -11,7 +11,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "junkfree-backend.onrender.com",
         port: "",
-        pathname: "/media/item_images/**",
+        pathname: "/media/junk/**",
       },
     ],
   },
