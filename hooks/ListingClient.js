@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useFetchItemsQuery,
   useFetchAuthenticatedUserQuery,
+  useFetchOwnListingsQuery,
 } from "@/redux/features/authApiSlice";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
@@ -60,7 +61,7 @@ const ListingsClient = () => {
             {/* Additional Info */}
             <div className="mt-2  items-center justify-between">
               <p className="text-sm text-gray-500">
-                Posted by: {userData.first_name} {userData.last_name}
+                Posted by: {item.user_first_name} {item.user_last_name}
               </p>
               <p className="text-sm text-gray-500">
                 posted:

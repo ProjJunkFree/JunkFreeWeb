@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import CreateModal from "./CreateModal";
-import { useCreateItemMutation } from "@/redux/features/authApiSlice"; // Adjust import path accordingly
+import { useCreateItemMutation } from "@/redux/features/authApiSlice";
 import Image from "next/image";
 
 const CreateListingForm = ({
@@ -57,10 +57,8 @@ const CreateListingForm = ({
       const { data } = await createItem(formData);
       console.log("Created item:", data);
 
-      // After successful creation, refetch the listings to update the UI
       await refetchListings();
 
-      // Reset the newItem state
       setNewItem({
         name: "",
         description: "",
