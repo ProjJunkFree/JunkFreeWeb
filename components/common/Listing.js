@@ -5,6 +5,7 @@ import React from "react";
 import { formatDistanceToNow } from "date-fns";
 
 const Listing = ({ listing }) => {
+  console.log(listing);
   return (
     <div className="bg-white overflow-hidden shadow rounded-lg">
       <Image

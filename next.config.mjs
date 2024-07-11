@@ -13,6 +13,12 @@ const nextConfig = {
         port: "",
         pathname: "/media/junk/**",
       },
+      {
+        protocol: "http",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
